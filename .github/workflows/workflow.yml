@@ -34,6 +34,6 @@ jobs:
           
       - uses: EndBug/add-and-commit@v9
         with:
-          add: docs/test.html
+          add: .
           author_name: GitHub Actions
           message: Auto generated docs
