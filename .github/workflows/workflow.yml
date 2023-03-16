@@ -36,4 +36,4 @@ jobs:
         with:
           add: test.html
           author_name: GitHub Actions
-          message: Auto generated doc
+          message: Auto generated docs
