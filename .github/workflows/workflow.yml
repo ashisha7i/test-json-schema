@@ -29,7 +29,7 @@ jobs:
         with:
           packages: |
             json-schema-for-humans
-      - run: generate-schema-doc --config expand_buttons=true --config with_footer=false test.json docs/index.html
+      - run: generate-schema-doc --config expand_buttons=true --config with_footer=true test.json docs/index.html
 
           
       - uses: EndBug/add-and-commit@v9
