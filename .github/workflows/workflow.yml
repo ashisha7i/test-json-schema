@@ -42,7 +42,7 @@ jobs:
           packages: |
             json-schema-for-humans
       - run: generate-schema-doc --config expand_buttons=true --config with_footer=false test.json docs/index.html
-      - run: generate-schema-doc --config expand_buttons=true --config with_footer=false --config template_name=md test.json README_1.md
+      - run: generate-schema-doc --config expand_buttons=true --config with_footer=false --config template_name=md test.json README.md
       
       - name: Write File
         # You may pin to the exact commit or the version.
