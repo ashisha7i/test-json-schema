@@ -42,8 +42,21 @@ jobs:
           packages: |
             json-schema-for-humans
       - run: generate-schema-doc --config expand_buttons=true --config with_footer=false test.json docs/index.html
-      - run: generate-schema-doc --config expand_buttons=true --config with_footer=false --config template_name=md test.json README.md
-
+      - run: generate-schema-doc --config expand_buttons=true --config with_footer=false --config template_name=md test.json README_1.md
+      
+      - name: Nix Shell
+        uses: workflow/nix-shell-action@v3.2.0
+        with:
+          # Interpreter to use in the nix shell shebang
+          interpreter: bash
+          # Comma separated list of packages that are to be available in your shell
+          packages: bash
+          # The actual script to execute in the shell
+          script: |
+            echo "HTML Version of Docs Published on GitHub Pages [here](https://crispy-adventure-k6zny9q.pages.github.io/index.html)" > README.md
+            echo "---" > README.md
+            cat README_1.md >> README.md
+            rm -f README_1.md
           
       - uses: EndBug/add-and-commit@v9
         with:
