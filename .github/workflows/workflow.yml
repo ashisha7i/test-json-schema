@@ -53,8 +53,9 @@ jobs:
           path: README.md
           # The contents of the file
           contents: |
-            "----TEST"
-            "---"
+            ---
+            ### TEST
+            ---
           # The mode of writing to use: `overwrite`, `append`, or `preserve`.
           write-mode: append
           
