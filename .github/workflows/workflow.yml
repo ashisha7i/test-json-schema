@@ -42,6 +42,7 @@ jobs:
           packages: |
             json-schema-for-humans
       - run: generate-schema-doc --config expand_buttons=true --config with_footer=false test.json docs/index.html
+      - run: generate-schema-doc --config expand_buttons=true --config with_footer=false --config template_name=md test.json README.md
 
           
       - uses: EndBug/add-and-commit@v9
