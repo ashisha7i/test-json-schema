@@ -43,7 +43,11 @@ jobs:
             json-schema-for-humans
       - run: generate-schema-doc --config expand_buttons=true --config with_footer=false test.json docs/index.html
       - run: generate-schema-doc --config expand_buttons=true --config with_footer=false --config template_name=md test.json docs/schemaDocs.md
-      
+
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
       - name: Write File
         # You may pin to the exact commit or the version.
         # uses: DamianReeves/write-file-action@0a7fcbe1960c53fc08fe789fa4850d24885f4d84
@@ -57,9 +61,11 @@ jobs:
             - HTML Docs available [here](https://ashisha7i.github.io/test-json-schema/)
             - MarkDown Version available [here](docs/schemaDocs.md)
             ---
+            __Generated on: ${{ steps.date.outputs.date }}__
           # The mode of writing to use: `overwrite`, `append`, or `preserve`.
           write-mode: overwrite
-          
+      
+      
       - uses: EndBug/add-and-commit@v9
         with:
           add: .
